@@ -69,6 +69,8 @@ def delete_record(request, pk):
     messages.success(request, 'You must be logged in ')
     return redirect('home')
   
+def add_record(request):
+  return render(request, 'crm/add_record.html', {})
 
 # def user_register(request):
 #   if request.method == 'POST':
