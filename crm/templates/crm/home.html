@@ -53,7 +53,7 @@
           {% for record in records %}
             <tr class="even:bg-blue-50 hover:bg-teal-100 border">
               <td class="p-4 text-sm text-black">
-                {{ record.first_name }}
+                {{ record.first_name }} {{ record.last_name}}
               </td>
               <td class="p-4 text-sm text-black">
                 {{ record.email }}
@@ -76,9 +76,11 @@
               <td class="p-4 text-sm text-black">
                 {{ record.created_at }}
               </td>
-              <td class="p-4 text-sm text-black">
-                <a href="{{% url 'record' record.id %}}"> {{ record.id }} </a> 
-              </td>
+              <td class="p-4 text-lg text-white font-bold  text-violet-900">
+                <a class="bg-teal-800 p-2 rounded-full" href="{% url 'record' record.id %}">{{ record.id }} </a>
+          
+            </td>
+            
               
       
             </tr>
@@ -90,19 +92,6 @@
   </div>
 
 
-<h1>Records</h1>
-{% if records %}
-  {% for record in records %}
-    {{ record.first_name }} <br>
-    {{ record.last_name }} <br>
-    {{ record.email }} <br>
-    {{ record.phone }} <br>
-    {{ record.address }} <br>
-    {{ record.city }} <br>
-    {{ record.state }} <br>
-    {{ record.zipcode }} <br>
-  {% endfor %}
-{% endif %}
 
 {% else %}
 

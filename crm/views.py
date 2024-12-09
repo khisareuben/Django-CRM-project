@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import login
@@ -51,16 +51,24 @@ def user_register(request):
     context = {'form': form}
     return render(request, 'crm/register.html', context)
   
-def user_record(request, pk):
-  # not to allow not login user to access it
-  if request.user.is_authenticated:   
-    # view the record
-    user_record = Record.objects.get(id=pk)
-    return render(request, 'record.html', {'user_record':user_record})
-  
+def customer_record(request, pk):
+  if request.user.is_authenticated:
+    customer_record = Record.objects.get(id=pk) 
+    return render(request, 'crm/record_detail.html', {'customer_record': customer_record})
   else:
     messages.success(request, 'You must be logged in to view this page ')
+    return redirect('login')
+  
+def delete_record(request, pk):
+  if request.user.is_authenticated:
+    delete_card = Record.objects.get(id=pk)
+    delete_card.delete()
+    messages.success(request, "Record deleted successfully")
     return redirect('home')
+  else:
+    messages.success(request, 'You must be logged in ')
+    return redirect('home')
+  
 
 # def user_register(request):
 #   if request.method == 'POST':

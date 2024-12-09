@@ -1,0 +1,32 @@
+{% extends "crm/navbar.html" %}
+
+{% block content %}
+
+
+<div class="w-full p-4 text-start bg-white border border-gray-300 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white border h-11">{{ customer_record.first_name }} {{ customer_record.last_name}}</h5>
+  <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">
+    <p class="mt-5"><strong>Email:</strong> {{ customer_record.email }} <br></p>
+    <p class="mt-5"><strong>Phone:</strong> {{ customer_record.phone }} <br></p>
+    <p class="mt-5"><strong>Address:</strong> {{ customer_record.address }} <br></p>
+    <p class="mt-5"><strong>City:</strong> {{ customer_record.city }} <br></p>
+    <p class="mt-5"><strong>state:</strong> {{ customer_record.state }} <br></p>
+    <p class="mt-5"><strong>Zipcode:</strong> {{ customer_record.zipcode }} <br></p>
+    <p class="mt-5"><strong>Date created:</strong> {{ customer_record.created_at }} <br></p>
+    <p class="mt-5"><strong>ID:</strong> {{ customer_record.id }} <br></p>
+    
+  </p>
+  
+  </div>
+</div>
+
+<a href="{% url 'home' %}">
+  <button type="button" class="mt-4 ml-6 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700">Back</button>
+</a>
+
+<a href="{% url 'delete_record' customer_record.id %}">
+  <button type="button" class="mt-4 ml-4 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-violet-600 hover:bg-violet-900">Delete</button>
+</a>
+
+
+{% endblock  %}
