@@ -1,0 +1,19 @@
+{% extends "crm/navbar.html" %}
+
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>You are logged in</h1>
+<p>Username : {{ user.username }}</p>
+
+{% else %}
+<div class="bg-yellow-100 text-yellow-800 p-4 rounded-lg" role="alert">
+  <strong class="font-bold text-sm mr-4">Warning!</strong>
+  <span class="block text-sm sm:inline max-sm:mt-2">{{messages}}</span>
+</div>
+
+{% endif %}
+
+{% endblock %}

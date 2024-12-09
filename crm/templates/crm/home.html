@@ -1,0 +1,119 @@
+{% extends "crm/navbar.html" %}
+
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+  {% if messages %}
+  {% for message in messages %}
+  <div id="logoutAlert" class="bg-red-100 text-red-800 p-4 rounded-lg" role="alert">
+    <span class="block text-sm sm:inline max-sm:mt-2">{{ message }}</span>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+
+  <div class="font-[sans-serif] overflow-x-auto">
+    <table class="min-w-full bg-white">
+      <thead class="bg-gray-800 whitespace-nowrap ">
+        <tr>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            Name
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            Email
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            Phone
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            Address
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            city
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            state
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            Zipcode
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            created_at
+          </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            ID
+          </th>
+        </tr>
+      </thead>
+
+      <tbody class="whitespace-nowrap">
+        {% if records %}
+          {% for record in records %}
+            <tr class="even:bg-blue-50 hover:bg-teal-100 border">
+              <td class="p-4 text-sm text-black">
+                {{ record.first_name }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                {{ record.email }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                {{ record.phone }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                {{ record.address }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                {{ record.city }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                {{ record.state }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                {{ record.zipcode }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                {{ record.created_at }}
+              </td>
+              <td class="p-4 text-sm text-black">
+                <a href="{{% url 'record' record.id %}}"> {{ record.id }} </a> 
+              </td>
+              
+      
+            </tr>
+
+            {% endfor %}
+          {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+
+<h1>Records</h1>
+{% if records %}
+  {% for record in records %}
+    {{ record.first_name }} <br>
+    {{ record.last_name }} <br>
+    {{ record.email }} <br>
+    {{ record.phone }} <br>
+    {{ record.address }} <br>
+    {{ record.city }} <br>
+    {{ record.state }} <br>
+    {{ record.zipcode }} <br>
+  {% endfor %}
+{% endif %}
+
+{% else %}
+
+{% if messages %}
+{% for message in messages %}
+<div id="logoutAlert" class="bg-red-100 text-red-800 p-4 rounded-lg" role="alert">
+  <span class="block text-sm sm:inline max-sm:mt-2">{{ message }}</span>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

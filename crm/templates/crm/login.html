@@ -1,0 +1,48 @@
+{% extends "crm/base.html" %}
+
+
+{% block content %}
+
+
+{% comment %} {% if user.is_authenticated %}
+<h1>You are logged in</h1>
+<p>Username : {{ user.username }}</p>
+
+{% else %} {% endcomment %}
+
+<div class="container">
+  
+  <div class="form-container h-[500px]">
+    {% if messages %}
+    {% for message in messages %}
+    <div id="logoutAlert" class="bg-red-100 text-red-800 p-4 rounded-lg" role="alert">
+      <span class="block text-sm sm:inline max-sm:mt-2">{{ message }}</span>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <h1 id="title">Sign In</h1>
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      <div class="input-section">
+        <div class="input-field" id="username">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Username" name="username" required>
+        </div>
+
+        <div class="input-field">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" name="password" required>
+        </div>
+
+      <div class="btn-section mt-4">
+        <button type="submit" class="sign-up" id="sign-up">Sign In</button>
+      </div>
+
+      <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+    </form>
+  </div>
+</div>
+
+{% comment %} {% endif %} {% endcomment %}
+
+{% endblock %}

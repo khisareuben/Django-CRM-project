@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <nav>
+    <ul class="active">
+      <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}">Login</a></li>
+      {% endif %}
+      <li><a href="{% url 'register' %}">Register</a></li>
+    </ul>
+
+    <ul>
+      <li class="logo"><a href="#">Django CRM</a></li>
+      <li class="hideOnMobile" id="home"><a href="{% url 'home' %}">Home</a></li>
+      {% if user.is_authenticated %}
+      <i class="fa-solid fa-user"></i>
+      <p class="font-bold ml-2">{{ user.username }}</p>
+      <li class="hideOnMobile" id="login"><a href="{% url 'logout' %}">Logout</a></li>
+      {% else %}
+      <li class="hideOnMobile" id="login"><a href="{% url 'login' %}">Login</a></li>
+      <li class="hideOnMobile" id="register"><a href="{% url 'register' %}">Register</a></li>
+      {% endif %}
+      
+      <li class="menu-btn" onclick=showSidebar()><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+
+    </ul>
+  </nav>
+
+  {% block content %}
+
+  {% endblock %}
+
+  <script>
+    function showSidebar() {
+      const sidebar = document.querySelector('.active');
+      sidebar.style.display = 'flex';
+    }
+
+    function hideSidebar() {
+      const sidebar = document.querySelector('.active');
+      sidebar.style.display = 'none';
+    }
+
+    setTimeout(function() { 
+      document.getElementById('logoutAlert').classList.add('hidden'); 
+    }, 2000); // 2000 milliseconds = 2 seconds 
+  </script>
+  
+  </script>
+  
+</body>
+</html>                               

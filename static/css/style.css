@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #03162b;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.form-container {
+  width: 90%;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 50px 60px 70px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+  color: #03162b;
+  margin-bottom: 50px;
+  font-size: 32px;
+  position: relative;
+}
+
+.form-container h1::after {
+  content: '';
+  width: 50px;
+  height: 4px;
+  background: #03162b;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.input-field {
+  background: #f0f0f0;
+  margin: 15px 0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  max-height: 65px;
+  transition: max-height 0.5s;
+  overflow: hidden;
+}
+
+.input-field input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 18px 15px;
+}
+
+.input-field i {
+  margin-left: 15px;
+  color: #999;
+}
+
+.btn-section {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.btn-section button {
+  background: #03162b;
+  flex-basis: 48%;
+  margin: 40px 0;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  padding: 18px 0;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+}
+
+.input-section {
+  height: 250px;
+}
+
+.btn-section button.sign-in {
+  background: #002147;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 15px;
+  color: #03162b;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: gray;
+}
+
+.error {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 0.5em;
+}

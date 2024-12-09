@@ -1,0 +1,72 @@
+{% extends "crm/base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="form-container">
+    {% if form.errors %}
+    <div id="logoutAlert" class="bg-red-100 text-red-800 p-4 rounded-lg" role="alert">
+      <span class="block text-sm sm:inline max-sm:mt-2">{{ form.errors }}</span>
+    </div>
+    {% endif %}
+
+    
+    <h1 id="title">Sign Up</h1>
+    <form action="{% url 'register' %}" method="POST">
+      {% csrf_token %}
+      <div class="input-section">
+        <div class="input-field" id="username">
+          <i class="fa-solid fa-user"></i>
+          {{ form.username }}
+          {% comment %} <input type="text" placeholder="Username" name="username"> {% endcomment %}
+          
+        </div>
+        
+
+        <div class="input-field">
+          <i class="fa-solid fa-envelope"></i>
+          {{ form.email }}
+          
+          {% comment %} <input type="email" placeholder="Email" name="email"> {% endcomment %}
+          
+        </div>
+
+        <div class="input-field">
+          <i class="fa-solid fa-lock"></i>
+          {{ form.password1 }}
+          {% comment %} <input type="password" placeholder="Password" name="password1"> {% endcomment %}
+          
+        </div>
+
+        <div class="input-field">
+          <i class="fa-solid fa-lock"></i>
+          {{ form.password2 }}
+          {% comment %} <input type="password" placeholder="Confirm Password" name="password2"> {% endcomment %}
+          
+        </div>
+
+
+      </div>
+
+      <div class="btn-section">
+        <button type="submit" class="sign-up" id="sign-up">Sign Up</button>
+      </div>
+
+      <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
+    </form>
+
+    
+  </div>
+</div>
+
+
+<script>
+  var form_fields = document.getElementsByTagName('input')
+  form_fields[1].placeholder='Username..';
+  form_fields[2].placeholder='Email..';
+  form_fields[3].placeholder='Password..';
+  form_fields[4].placeholder='Confirm Password..';
+</script>
+
+{% endblock %}
