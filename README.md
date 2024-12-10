@@ -6,7 +6,7 @@
  ```
 **2. Create a virtual environment and activate it**
 ```
-py -m venv env
+python -m venv env
 
 source env/Scripts/activate  #for windows
 source env/bin/activate      #for mac/linux
