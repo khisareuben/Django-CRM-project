@@ -5,7 +5,7 @@ try:
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="mei chan su mysql"
+        password="your password"
     )
 
     if mydb.is_connected():
