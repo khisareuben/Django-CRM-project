@@ -17,7 +17,7 @@ source env/bin/activate      #for mac/linux
  pip install -r requirements.txt
  ```
 
-**4. Inside `settings.py` and `mysqldb.py` Change username and password to your mysql credentials**
+**4. Inside `settings.py` and `mysqldb.py` Change user and password to your mysql credentials**
 
 
 **5. run the `mysqldb.py` to create the database**
