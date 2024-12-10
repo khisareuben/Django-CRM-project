@@ -37,19 +37,19 @@ def user_logout(request):
 
 
 def user_register(request):
-  form = CustomUserCreationForm()
-  
-  if request.method == 'POST':
-    form = CustomUserCreationForm(request.POST)
-    if form.is_valid():
-      form.save()
-      user = form.cleaned_data.get('username')
-      messages.success(request, 'Account was created for ' + user)
-      return redirect('login')
-  
-  else:   
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+            return redirect('login')
+    else:
+        form = CustomUserCreationForm()
+    
     context = {'form': form}
     return render(request, 'crm/register.html', context)
+
   
 def customer_record(request, pk):
   if request.user.is_authenticated:
