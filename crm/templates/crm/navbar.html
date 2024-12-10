@@ -24,12 +24,12 @@
     </ul>
 
     <ul>
-      <li class="logo"><a href="#">Django CRM</a></li>
+      <li class="logo whitespace-nowrap"><a class="" href="#">Django CRM</a></li>
       <li class="hideOnMobile" id="home"><a href="{% url 'home' %}">Home</a></li>
       {% if user.is_authenticated %}
       <i class="fa-solid fa-user"></i>
       <p class="font-bold ml-2">{{ user.username }}</p>
-      <li class="hideOnMobile" id="login"><a class="whitespace-nowrap ml-2" href="{% url 'logout' %}">Add Record</a></li>
+      <li class="hideOnMobile" id="login"><a class="whitespace-nowrap ml-2" href="{% url 'add_record'  %}">Add Record</a></li>
       <li class="hideOnMobile" id="login"><a href="{% url 'logout' %}">Logout</a></li>
       {% else %}
       <li class="hideOnMobile" id="login"><a href="{% url 'login' %}">Login</a></li>

@@ -45,6 +45,9 @@
           <th class="p-4 text-left text-sm font-medium text-white">
             ID
           </th>
+          <th class="p-4 text-left text-sm font-medium text-white">
+            
+          </th>
         </tr>
       </thead>
 
@@ -54,6 +57,7 @@
             <tr class="even:bg-blue-50 hover:bg-teal-100 border">
               <td class="p-4 text-sm text-black">
                 {{ record.first_name }} {{ record.last_name}}
+                
               </td>
               <td class="p-4 text-sm text-black">
                 {{ record.email }}
@@ -76,9 +80,13 @@
               <td class="p-4 text-sm text-black">
                 {{ record.created_at }}
               </td>
-              <td class="p-4 text-lg text-white font-bold  text-violet-900">
-                <a class="bg-teal-800 p-2 rounded-full" href="{% url 'record' record.id %}">{{ record.id }} </a>
-          
+              
+              <td class="p-4 text-lg font-bold">
+                {{ record.id }}        
+            </td>
+            <td class="p-4 text-lg text-white font-bold">
+              <a class="p-2 rounded-full text-violet-600" href="{% url 'record' record.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+        
             </td>
             
               
@@ -102,6 +110,16 @@
 </div>
 {% endfor %}
 {% endif %}
+
+
+<div class="bg-gradient-to-b from-blue-900 via-blue-800 to-blue-500 px-6 sm:py-20 py-10 font-[sans-serif]">
+  <div class="max-w-screen-xl mx-auto text-center text-white">
+    <h1 class="text-5xl max-sm:text-3xl font-extrabold leading-tight mb-6">Welcome to our state-of-the-art Customer Relationship Management (CRM) system, powered by Django. </h1>
+    <p class="text-lg mb-12">Designed to streamline and enhance your interactions with customers, our Django CRM solution offers a robust platform for managing customer data, tracking communication, and driving sales growth. With its intuitive interface and powerful features, you can efficiently manage customer relationships, improve customer satisfaction, and boost your business performance. Whether you are a small business or a large enterprise, our CRM system is tailored to meet your unique needs and help you stay ahead in a competitive market.</p>
+    <button type="button" class="hidden bg-blue-600 text-white text-lg tracking-wide px-8 py-2.5 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">Get Started</button>
+  </div>
+</div>
+
 
 {% endif %}
 

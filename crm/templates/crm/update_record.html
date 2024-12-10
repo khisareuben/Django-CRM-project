@@ -5,8 +5,8 @@
 
 <div class="flex flex-col justify-center items-center">
 
-  <h1 id="title" class="text-2xl font-bold mb-4 mt-4">Add Record</h1>
-  <form action="{% url 'add_record' %}" method="POST">
+  <h1 id="title" class="text-2xl font-bold mb-4 mt-4">Update Record</h1>
+  <form method="POST">
     {% csrf_token %}
     <div class="input-section">
       <div class="input-field" id="username">
@@ -53,11 +53,7 @@
 
     </div>
 
-    <button type="submit" class="mt-4 ml-6 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700">Add Record</button>
-
-    <a href="{% url 'home' %}">
-      <button type="button" class="mt-4 ml-6 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-violet-600 hover:bg-violet-900">Back</button>
-    </a>
+    <button type="submit" class="mt-4 ml-6 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700">Update Record</button>
 
 
   </form>

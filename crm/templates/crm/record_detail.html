@@ -24,6 +24,10 @@
   <button type="button" class="mt-4 ml-6 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700">Back</button>
 </a>
 
+<a href="{% url 'update_record' customer_record.id %}">
+  <button type="button" class="mt-4 ml-6 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-blue-600 hover:bg-blue-700">Update Record</button>
+</a>
+
 <a href="{% url 'delete_record' customer_record.id %}">
   <button type="button" class="mt-4 ml-4 px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-violet-600 hover:bg-violet-900">Delete</button>
 </a>
